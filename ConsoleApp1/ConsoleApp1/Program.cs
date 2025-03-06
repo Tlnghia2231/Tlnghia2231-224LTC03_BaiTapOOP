@@ -40,6 +40,22 @@
         public abstract int CalculateSalary();
     }
 
+    public class PartTimeEmployee : Employee
+    {
+        private int workingHours;
+
+        public PartTimeEmployee(string name, int paymentPerHour, int workingHours)
+            : base(name, paymentPerHour)
+        {
+            this.workingHours = workingHours;
+        }
+
+        public override int CalculateSalary()
+        {
+            return workingHours * GetPaymentPerHour();
+        }
+    }
+
     class Program
     {
         static void Main()
